@@ -36,3 +36,8 @@ You should look to apply any cron jobs from the host itself. An example of this 
 `*/30 * * * * docker exec -it pyats-docker-compose_pyats_1 pyats logs view --host 0.0.0.0 --port 8005 --no-browser  --reuse-port`
 
 The `pyats-cron-example` file will hold common example to apply to your crontab.
+
+## Notes
+
+- Cron is working
+- Email & Webex Alerts working

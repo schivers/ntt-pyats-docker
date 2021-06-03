@@ -1,8 +1,7 @@
 *.pyc
-*.mp3
+*.zip
 /lib
 /bin
 /share
 pyvenv.cfg
 small-testbed.yml
-/pyats

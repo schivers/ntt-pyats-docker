@@ -6,4 +6,5 @@ services:
              - "8005:8005"
     volumes:
              - ./pyats:/pyats/tests:z
+             - ./pyats.conf:/etc/pyats.conf
     tty: true
