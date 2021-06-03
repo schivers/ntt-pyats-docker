@@ -33,7 +33,7 @@ or
 
 You should look to apply any cron jobs from the host itself. An example of this would be: 
 
-`*/30 * * * * docker exec -it pyats-docker-compose_pyats_1 pyats logs view --host 0.0.0.0 --port 8005 --no-browser  --reuse-port`
+`*/30 * * * * docker exec -it pyats-docker-compose_pyats_1 pyats run job tests/example_job.py --testbed-file small-testbed.yml`
 
 The `pyats-cron-example` file will hold common example to apply to your crontab.
 
