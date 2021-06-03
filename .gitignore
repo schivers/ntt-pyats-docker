@@ -1,0 +1,8 @@
+*.pyc
+*.mp3
+/lib
+/bin
+/share
+pyvenv.cfg
+small-testbed.yml
+/pyats

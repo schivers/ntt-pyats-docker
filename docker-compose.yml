@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  pyats:
+    image: atest2
+    ports:
+             - "8005:8005"
+    volumes:
+             - ./pyats:/pyats/tests:z
+    tty: true

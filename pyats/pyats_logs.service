@@ -1,0 +1,12 @@
+[Unit]
+Description=Pyats Logs Viewer
+After=network.target
+[Service]
+#Environment=PATH=/home/ntt/.rvm/gems/ruby-2.4.1/bin:/home/ntt/.rvm/gems/ruby-2.4.1@global/bin:/home/ntt/.rvm/rubies/ruby-2.4.1/bin:/home/ntt/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ntt/.rvm/bin:/home/ntt/.rvm/bin
+Type=simple
+User=ntt
+ExecStart=/home/ntt/.local/bin/pyats logs view --host 0.0.0.0 --port 8005 --no-browser
+Restart= always
+
+[Install]
+WantedBy=multi-user.target
