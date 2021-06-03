@@ -1,7 +1,0 @@
-version: '3.4'
-services:
-  pyats: 
-    image: ciscotestautomation/pyats:latest
-    volumes:
-    - ../source-of-truth:/pyats/source-of-truth
-
