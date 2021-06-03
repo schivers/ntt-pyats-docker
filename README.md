@@ -41,3 +41,16 @@ The `pyats-cron-example` file will hold common example to apply to your crontab.
 
 - Cron is working
 - Email & Webex Alerts working
+- Pyats logs server restarts every 5 mins. 
+
+## Using the image
+
+On your OS store any pyATs tests in `/pyats` - These will then be found in the container under `/tests`
+
+`docker exec -it pyats-docker-compose_pyats_1 /bin/bash` - Is recommended for dev work. 
+
+`docker exec -it pyats-docker-compose_pyats_1 <command>` - External commands/cron jobs
+
+Make all modifications on the OS side to scripts, conf files etc.
+
+
