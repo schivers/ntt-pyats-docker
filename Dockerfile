@@ -30,9 +30,10 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # modify entrypoint
+COPY ./pyats_logs.py /pyats/
 COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
+#ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
 
 # default to python shell
 WORKDIR ${WORKSPACE}
-CMD ["python"]
+CMD ["python","pyats_logs.py"]
