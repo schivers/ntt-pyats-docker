@@ -7,4 +7,5 @@ services:
     volumes:
              - ./pyats:/pyats/tests:z
              - ./pyats.conf:/etc/pyats.conf
+             - ./archive:/root/.pyats/archive:z
     tty: true
