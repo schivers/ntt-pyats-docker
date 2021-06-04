@@ -1,9 +1,12 @@
 variables:
   DOCKER_REPO_URL: https://artifactory.dimensiondata.com/artifactory/docker-local/
   DOCKER_REPO_NAME: artifactory.dimensiondata.com/docker-local
+  DOCKER_DRIVER: overlay2
+
   
 before_script:
   - docker login $DOCKER_REPO_URL -u $TWINE_USERNAME -p $TWINE_PASSWORD
+  - docker info
   
 
   
