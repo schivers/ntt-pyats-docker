@@ -5,7 +5,7 @@ variables:
 
   
 before_script:
-  - docker login $DOCKER_REPO_URL -u $TWINE_USERNAME -p $TWINE_PASSWORD
+  - docker login $DOCKER_REPO_URL -u $TWINE_USERNAME --password-stdin $TWINE_PASSWORD
   - docker info
   
 
