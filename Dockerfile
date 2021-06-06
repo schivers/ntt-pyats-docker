@@ -5,7 +5,7 @@ ARG WORKSPACE
 ENV WORKSPACE ${WORKSPACE:-/pyats}
 
 # version definition
-ARG PYATS_VERSION=21.4
+ARG PYATS_VERSION=21.5
 
 # tini version
 ENV TINI_VERSION 0.18.0
@@ -21,7 +21,7 @@ RUN apt-get update \
  && curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static-amd64 -o /bin/tini \
  && chmod +x /bin/tini \
  && pip3 install --upgrade --no-cache-dir setuptools pip virtualenv \
- && pip3 install --no-cache-dir pyats~=${PYATS_VERSION}.0 genie~=${PYATS_VERSION}.0 \
+ && pip3 install --no-cache-dir pyats[full]~=${PYATS_VERSION}.0 rest.connector~=${PYATS_VERSION}.0 yang.connector~=${PYATS_VERSION}.0 \
  && mkdir ${WORKSPACE} && mkdir ${WORKSPACE}/users && mkdir ${WORKSPACE}/tests && chmod 775 ${WORKSPACE}/users \
  && apt-get remove -y curl build-essential\
  && apt-get autoremove -y\
