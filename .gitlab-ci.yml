@@ -1,9 +1,12 @@
 variables:
   DOCKER_REPO_URL: https://artifactory.dimensiondata.com/artifactory/docker-local/
   DOCKER_REPO_NAME: artifactory.dimensiondata.com/docker-local
+  DOCKER_DRIVER: overlay2
+
   
 before_script:
   - docker login $DOCKER_REPO_URL -u $TWINE_USERNAME -p $TWINE_PASSWORD
+  - docker info
   
 
   
@@ -18,7 +21,7 @@ docker-build:
   script:
     - docker build --pull -t "$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG" .
     - docker tag "$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG" "$DOCKER_REPO_NAME/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
-    - docker push "$DOCKER_REPO_NAME/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
+   # - docker push "$DOCKER_REPO_NAME/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
   except:
     - master
 
@@ -27,12 +30,13 @@ docker-build-master:
   # Official docker image.
   image: docker:latest
   tags:
-  - udind
+  - pyats
   stage: build
   services:
     - docker:dind
   script:
     - docker build --pull -t "$CI_PROJECT_NAME" .
     - docker tag "$CI_PROJECT_NAME" "$DOCKER_REPO_NAME/$CI_PROJECT_NAME"
+    #- docker push "$DOCKER_REPO_NAME/$CI_PROJECT_NAME:latest"
   only:
     - master
