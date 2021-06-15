@@ -2,10 +2,27 @@ version: '3.4'
 services:
   pyats:
     image: pyats
-    ports:
-             - "8005:8005"
     volumes:
              - ./pyats:/pyats/tests:z
              - ./pyats.conf:/etc/pyats.conf
              - ./archive:/root/.pyats/archive:z
     tty: true
+
+  pyats-web:
+    image: pyats
+    ports:
+              - "8007:8005"
+    volumes:
+              - ./archive:/root/.pyats/archive:z
+    tty: true
+    entrypoint:  ["python","pyats_logs.py"]
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+              - "8005:80"
+    volumes:
+              - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+              - pyats-web

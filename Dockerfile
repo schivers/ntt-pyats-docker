@@ -36,4 +36,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 
 # default to python shell
 WORKDIR ${WORKSPACE}
-CMD ["python","pyats_logs.py"]
+#CMD ["python","pyats_logs.py"]

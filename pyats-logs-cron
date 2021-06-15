@@ -1,3 +1,5 @@
-*/30 * * * * docker exec -it pyats-docker-compose_pyats_1 pyats run job tests/example_job.py --testbed-file small-testbed.yml
-
+#Example cron job
+0 * * * *  docker exec -t ntt-pyats-docker_pyats_1 pyats run job tests/pyats/remote_management_access/remote_manage_job.py -t tests/testbeds/GLA_testbed_router.yaml > /home/root_uefa_ops/test.txt
+#Example creating testbed from Netbox
+docker exec -it ntt-pyats-docker_pyats_1 pyats create testbed netbox --output tests/testbeds/GLA_testbed_router.yaml
 
