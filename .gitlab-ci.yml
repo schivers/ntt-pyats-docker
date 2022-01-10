@@ -14,7 +14,7 @@ docker-build:
   # Official docker image.
   image: docker:latest
   tags:
-  - udind
+  - uki
   stage: build
   services:
     - docker:dind
@@ -30,7 +30,7 @@ docker-build-master:
   # Official docker image.
   image: docker:latest
   tags:
-  - pyats
+  - uki
   stage: build
   services:
     - docker:dind
